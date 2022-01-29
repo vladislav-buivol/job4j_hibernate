@@ -20,5 +20,7 @@
 
         <mapping class="ru.job4j.hql.Student"/>
         <mapping class="ru.job4j.hql.Candidate"/>
+        <mapping class="ru.job4j.hql.Vacancy"/>
+        <mapping class="ru.job4j.hql.VacancyDatabase"/>
     </session-factory>
 </hibernate-configuration>

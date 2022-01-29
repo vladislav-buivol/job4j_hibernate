@@ -14,6 +14,9 @@ public class Candidate {
     private String experience;
     private BigDecimal salary;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private VacancyDatabase vacancyDatabase;
+
     public static Candidate of(String name, String experience, BigDecimal salary) {
         Candidate candidate = new Candidate();
         candidate.setName(name);
@@ -54,6 +57,15 @@ public class Candidate {
         this.salary = salary;
     }
 
+    public VacancyDatabase getVacancyDatabase() {
+        return vacancyDatabase;
+    }
+
+    public Candidate setVacancyDatabase(VacancyDatabase vacancyDatabase) {
+        this.vacancyDatabase = vacancyDatabase;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,7 +87,9 @@ public class Candidate {
     public String toString() {
         return "Candidate{" + "id=" + id
                 + ", name='" + name + '\''
-                + ", experience='" + experience + '\''
-                + ", salary=" + salary + '}';
+                + ", experience='" + experience
+                + '\'' + ", salary=" + salary
+                + ", vacancyDatabase=" + vacancyDatabase
+                + '}';
     }
 }
